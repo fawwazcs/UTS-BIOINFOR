@@ -1,0 +1,190 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "format-version": "0.1",
+    "name": "Workflow constructed from history 'mapping overflow'",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "reads_2.fastq"
+                }
+            ],
+            "label": "reads_2.fastq",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 10,
+                "top": 10
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "aebb32df-a4cc-4b45-85f0-796173b6513b",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "reads_1.fastq"
+                }
+            ],
+            "label": "reads_1.fastq",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 10,
+                "top": 130
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "16c0c80d-8dac-4cfb-8e06-2316e617d7ae",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.5.0+galaxy0",
+            "errors": null,
+            "id": 2,
+            "input_connections": {
+                "library|input_1": {
+                    "id": 1,
+                    "output_name": "output"
+                },
+                "library|input_2": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Bowtie2",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "bam"
+                },
+                {
+                    "name": "mapping_stats",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 230,
+                "top": 10
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.5.0+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "03e9b2fbc005",
+                "name": "bowtie2",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"analysis_type\": {\"analysis_type_selector\": \"simple\", \"__current_case__\": 0, \"presets\": \"no_presets\"}, \"chromInfo\": \"/cvmfs/data.galaxyproject.org/managed/len/ucsc/?.len\", \"library\": {\"type\": \"paired\", \"__current_case__\": 1, \"input_1\": null, \"input_2\": null, \"unaligned_file\": false, \"aligned_file\": false, \"paired_options\": {\"paired_options_selector\": \"no\", \"__current_case__\": 1}}, \"reference_genome\": {\"source\": \"indexed\", \"__current_case__\": 0, \"index\": \"mm10\"}, \"rg\": {\"rg_selector\": \"do_not_set\", \"__current_case__\": 3}, \"sam_options\": {\"sam_options_selector\": \"no\", \"__current_case__\": 1}, \"save_mapping_stats\": true, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.5.0+galaxy0",
+            "type": "tool",
+            "uuid": "d2927a94-78e2-41b9-9baf-30d5a88dac6e",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_stats/samtools_stats/2.0.4",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "input": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Samtools stats",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 450,
+                "top": 10
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_stats/samtools_stats/2.0.4",
+            "tool_shed_repository": {
+                "changeset_revision": "3a0efe14891f",
+                "name": "samtools_stats",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"addref_cond\": {\"addref_select\": \"cached\", \"__current_case__\": 2, \"ref\": \"mm10\"}, \"chromInfo\": \"/cvmfs/data.galaxyproject.org/managed/len/ucsc/mm10.len\", \"cond_region\": {\"select_region\": \"no\", \"__current_case__\": 0}, \"cov_threshold\": null, \"coverage_cond\": {\"coverage_select\": \"no\", \"__current_case__\": 0}, \"filter_by_flags\": {\"filter_flags\": \"nofilter\", \"__current_case__\": 1}, \"gc_depth\": null, \"input\": null, \"insert_size\": null, \"most_inserts\": null, \"read_group\": null, \"read_length\": null, \"remove_dups\": false, \"remove_overlaps\": false, \"sparse\": false, \"split_output_cond\": {\"split_output_selector\": \"no\", \"__current_case__\": 0}, \"trim_quality\": null, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.0.4",
+            "type": "tool",
+            "uuid": "543a2c89-5338-4e25-996a-e91e6e73fbaa",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "4": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
+            "errors": null,
+            "id": 4,
+            "input_connections": {
+                "track_groups_0|data_tracks_0|data_format|annotation": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "JBrowse",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "html"
+                }
+            ],
+            "position": {
+                "left": 450,
+                "top": 130
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "a6e57ff585c0",
+                "name": "jbrowse",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"bam\", \"action\": {\"action_select\": \"create\", \"__current_case__\": 0}, \"chromInfo\": \"/cvmfs/data.galaxyproject.org/managed/len/ucsc/mm10.len\", \"gencode\": \"1\", \"jbgen\": {\"defaultLocation\": \"\", \"trackPadding\": \"20\", \"shareLink\": true, \"aboutDescription\": \"\", \"show_tracklist\": true, \"show_nav\": true, \"show_overview\": true, \"show_menu\": true, \"hideGenomeOptions\": false}, \"plugins\": {\"BlastView\": true, \"ComboTrackSelector\": false, \"GCContent\": false}, \"reference_genome\": {\"genome_type_select\": \"indexed\", \"__current_case__\": 0, \"genomes\": \"mm10\"}, \"standalone\": \"minimal\", \"track_groups\": [{\"__index__\": 0, \"category\": \"Default\", \"data_tracks\": [{\"__index__\": 0, \"data_format\": {\"data_format_select\": \"pileup\", \"__current_case__\": 3, \"annotation\": null, \"auto_snp\": true, \"chunkSizeLimit\": \"5000000\", \"jb_custom_config\": {\"option\": []}, \"track_visibility\": \"default_on\", \"override_apollo_plugins\": \"False\", \"override_apollo_drag\": \"False\"}}]}], \"uglyTestingHack\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.16.11+galaxy1",
+            "type": "tool",
+            "uuid": "f127a12b-232e-4caa-93e7-ef8a9603383e",
+            "when": null,
+            "workflow_outputs": []
+        }
+    },
+    "tags": [],
+    "uuid": "7400c1f3-81c3-4a3e-9812-23140398253d",
+    "version": 0
+}
